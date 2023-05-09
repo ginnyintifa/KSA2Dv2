@@ -40,8 +40,6 @@ balance_sample_purity_bandwidth(
 \item{adjust_purity_flag}{a boolean value if set to True tumor purity is adjusted and the annot_file must be provided}
 
 \item{annot_file}{absolute directory to the sample annotation file, column name must be purity, ID column name must be caseID}
-
-\item{all_seeds}{seeds for the permutation}
 }
 \description{
 calculate posterior probability of each relationship being significant

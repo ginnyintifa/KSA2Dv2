@@ -127,7 +127,6 @@ ks_map = function(protData_filename,
 #' @param d1_data dataframe for the data of the first dimension, rows are genes, columns are patients in 2 conditions
 #' @param d2_data dataframe for the data of the second dimension, rows are genes, columns are patients in 2 conditions
 #' @param nna_cutoff genes with values in at least the number of samples are included in comparison
-#' @param all_seeds seeds for the permutation
 #' @param permute_time number of permutations 
 #' @param working_dir the directory output files will be deposited in 
 #' @param compare_name a label for the anlaysis 
