@@ -23,6 +23,23 @@ devtools::install_github("ginnyintifa/KSA2Dv2")
 library(KSA2Dv2)
 ```
 
+Please load these packages 
+
+```{r}
+library(data.table)
+library(dplyr)
+library(magrittr)
+library(limma)
+library(stringr)
+library(splines)
+library(MASS)
+library(scatterplot3d)
+library(limma)
+library(ggplot2)
+library(ggrepel)
+library(gridExtra)
+```
+
 Suppose we wish to identify differentially expressed proteins and phosphorylation sites with different abundance levels between 2 groups. Firstly we need to prepare 3 input files 
 
 
