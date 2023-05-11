@@ -26,52 +26,16 @@ sum_not_na = function(x)
 }
 
 
-get_na_df = function(v1, 
-                     v2,
-                     merge_df,
-                     site_df)
-{
-  
-  v1 = col_ncc_wgii_high
-  v2 = col_ncc_wgii_low
-  merge_df = filter_merge_r
-  site_df = fread("/Users/ginny/My Drive/nonCCRCC20211020/dataFreeze/phosphosite/phosphosite_MD_allGene.tsv",
-                  stringsAsFactors = F, data.table = F)
-  
-  na_eva = rbindlist(lapply(1:nrow(merge_df), function(x) {
-   # x = 724
-    tp = merge_df$name[x]
-    site = gsub("_prot","", tp)
-    
-    t = paste(unlist(strsplit(site, split = "_"))[2:3], collapse = "_")
-    w = which(site_df$geneSite == t)
-    
-    v1d = site_df[w, v1]
-    v2d = site_df[w,v2]
-    
-    v1_t = sum(is.na(v1d)==F) #### number of non-missing values 
-    v2_t = sum(is.na(v2d)==F)
-    
-    df = data.frame(name = tp, notNA1 = v1_t, notNA2 = v2_t, stringsAsFactors = F)
-    
-    return(df)
-    
-  }))
-  
-  
-  return(na_eva)
-}
 
 
-
-
-
-get_slice = function(x,num_slice, slice_seeds)
+get_slice = function(x,num_slice)
 {
   
   sx = c(1:x)
-  set.seed(slice_seeds)
+  
+  set.seed(123)
   s = sample(sx)
+  
   slice_n  = floor(x/num_slice)
   left_n = x%%num_slice
   

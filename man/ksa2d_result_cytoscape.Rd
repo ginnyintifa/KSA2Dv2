@@ -30,5 +30,5 @@ ksa2d_result_cytoscape(
 \item{ksNetwork_filename}{absolute directory to the kinase substrate network file, as an example, merge_ks_omni.tsv.}
 }
 \description{
-map the knase and substrate information
+visualization preparation
 }

@@ -7,11 +7,10 @@ The main algorithm for 1-dimensional discovery is based on
 >"Efron, Bradley, et al. "Empirical Bayes analysis of a microarray experiment." Journal of the American statistical association 96.456 (2001): 1151-1160.
 Efron, B., Tibshirani, R., Storey, J. "
 
-We extended the algorithm to 2-dimensional setting to discover joint variation of kinase and substrates. Later we adapted the tool to analyse unpaired group comparisons in 2D setting
+We extended the algorithm to 2-dimensional setting to discover joint variation of kinase and substrates (KSA2D) . Later we adapted the tool to analyse unpaired group comparisons in 2D setting (KSA2Dv2).
 
-This package can achieve the following functions. 
 ## 2 Installation and preparation 
-KSA2Dv2 can be downloaded and installed in R. Installation of GPD requires devtools as a prerequisite:
+KSA2Dv2 can be downloaded and installed in R. Installation requires devtools as a prerequisite:
 
 ```{r}
 install.packages("devtools")
@@ -27,8 +26,8 @@ library(KSA2Dv2)
 Suppose we wish to identify differentially expressed proteins and phosphorylation sites with different abundance levels between 2 groups. Firstly we need to prepare 3 input files 
 
 
-* protData.tsv: Data frame of proteome data, each row is a protein, columns are samples.  
-* psiteData.tsv: Data frame of site leve phosphoproteome data, each row is a protein, columns are samples
+* protein data: Data frame of proteome data, each row is a protein, columns are samples.  
+* phosphorylation data: Data frame of site leve phosphoproteome data, each row is a protein, columns are samples
 * Files for annotating proteins and mapping kinase-substrate relationships can be downloaded from PhosphoSitePlus or OmniPath
 
 Please notice that there are specific format requirements for both protData and psiteData. 

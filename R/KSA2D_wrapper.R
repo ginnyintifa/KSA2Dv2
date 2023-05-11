@@ -167,7 +167,7 @@ balance_sample_purity_bandwidth = function(d1_data,
   {
     m = floor(s2_len/s1_len)
     
-    slices = get_slice(s2_len, m, seeds[1])
+    slices = get_slice(s2_len, m)
     
     
     for(k in 1:m)
@@ -243,7 +243,7 @@ balance_sample_purity_bandwidth = function(d1_data,
 
 #' generate node and edge file for cytoscape visualization
 #' 
-#' map the knase and substrate information
+#' visualization preparation
 #' @param working_dir the directory of the files that KSA2D main results are in  
 #' @param output_dir the directory for the output files of this function 
 #' @param freq_cutoff an integer indicating the number of times a kinase to substrate relationship is evaluated across all slices, default to half of the number of total slices 
