@@ -126,6 +126,7 @@ ks_map = function(protData_filename,
 #' @param s2_col_name names of the columns in the second condition
 #' @param d1_data dataframe for the data of the first dimension, rows are genes, columns are patients in 2 conditions
 #' @param d2_data dataframe for the data of the second dimension, rows are genes, columns are patients in 2 conditions
+#' @param balance_flag a boolean value if want to go to balance fitting mode, default is False. 
 #' @param nna_cutoff genes with values in at least the number of samples are included in comparison
 #' @param permute_time number of permutations 
 #' @param working_dir the directory output files will be deposited in 
@@ -141,6 +142,7 @@ ks_map = function(protData_filename,
 
 balance_sample_purity_bandwidth = function(d1_data,
                                            d2_data,
+                                           balance_flag = F, 
                                            s1_col_name,
                                            s2_col_name,
                                            nna_cutoff,
@@ -153,7 +155,11 @@ balance_sample_purity_bandwidth = function(d1_data,
 {
   
 
-    # 
+  
+  if(balance_flag == T)
+  {
+    
+  
   s1_col_name = intersect(colnames(d1_data), s1_col_name)
   s2_col_name = intersect(colnames(d1_data), s2_col_name)
   
@@ -188,7 +194,7 @@ balance_sample_purity_bandwidth = function(d1_data,
                                                                bandF = bandwidth_factor,
                                                                is_purity_adjusted = adjust_purity_flag)
       
-      cat(k, slice_result)    
+      cat(k, slice_result, "\n")    
       
     }
     
@@ -224,9 +230,29 @@ balance_sample_purity_bandwidth = function(d1_data,
                                                                bandF = bandwidth_factor,
                                                                is_purity_adjusted = adjust_purity_flag)
       
-      cat(k, slice_result)    
+      cat(k, slice_result, "\n")    
       
     }
+    
+  }
+  }else{
+    
+    ### no slicing 
+    cat("no slicing ", "\n")
+    cat(compare_name, "\n")
+    
+    all_result = comparison_time_points_2d_limma_bandwidth(d1_data = d1_data,
+                                              d2_data = d2_data,
+                                              s1_col_name = s1_col_name,
+                                              s2_col_name = s2_col_name,
+                                              nna_cutoff = nna_cutoff,
+                                              permute_time = permute_time,
+                                              working_dir = working_dir,
+                                              compare_name = compare_name,
+                                              col_annot_file = annot_file,
+                                              bandF = bandwidth_factor,
+                                              is_purity_adjusted = adjust_purity_flag)
+    cat(all_result)    
     
   }
   

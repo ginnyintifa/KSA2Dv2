@@ -94,10 +94,9 @@ comparison_time_points_2d_limma_bandwidth = function(d1_data,
   
   
   sn = min(c(ncol(s1_d1_use), ncol(s2_d1_use)))
-  cn = sn/2
+  cnn = sn/2
   
-  #### 0508  check this part again 
-  
+
   null_permute  = lapply(1:permute_time,function(x) {
 
     sset = (x-1)*4 + c(1:4)
@@ -112,16 +111,16 @@ comparison_time_points_2d_limma_bandwidth = function(d1_data,
     if(x%%2 ==0)
     {
       set.seed(sset[3])
-      s1_change = sample(s1_d1_sel,floor(cn))
+      s1_change = sample(s1_d1_sel,floor(cnn))
       set.seed(sset[4])
-      s2_change = sample(s2_d1_sel,floor(cn))
+      s2_change = sample(s2_d1_sel,floor(cnn))
       
       
     }else{
       set.seed(sset[3])
-      s1_change = sample(s1_d1_sel,ceiling(cn))
+      s1_change = sample(s1_d1_sel,ceiling(cnn))
       set.seed(sset[4])
-      s2_change = sample(s2_d1_sel,ceiling(cn))
+      s2_change = sample(s2_d1_sel,ceiling(cnn))
       
     }
     

@@ -7,6 +7,7 @@
 balance_sample_purity_bandwidth(
   d1_data,
   d2_data,
+  balance_flag = F,
   s1_col_name,
   s2_col_name,
   nna_cutoff,
@@ -22,6 +23,8 @@ balance_sample_purity_bandwidth(
 \item{d1_data}{dataframe for the data of the first dimension, rows are genes, columns are patients in 2 conditions}
 
 \item{d2_data}{dataframe for the data of the second dimension, rows are genes, columns are patients in 2 conditions}
+
+\item{balance_flag}{a boolean value if want to go to balance fitting mode, default is False.}
 
 \item{s1_col_name}{names of the columns in the first condition}
 
