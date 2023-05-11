@@ -301,7 +301,7 @@ ksa2d_result_cytoscape = function(working_dir,
   
   all_files = list.files(working_dir)
   all_results_files = grep("\\.tsv", all_files, value = T)
-  all_results_files = grep("slice", all_results_files, value = T)
+  #all_results_files = grep("slice", all_results_files, value = T)
   
 rl = list()
 names = c()
